@@ -10,7 +10,7 @@ public class HomeController {
     
     @GetMapping("/")
     public String home(){
-        return "TEST OF CHANGE";
+        return "make a CHANGE";
         
     }
 
