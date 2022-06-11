@@ -10,8 +10,8 @@ public class HomeController {
     
     @GetMapping("/")
     public String home(){
-        return "Hello planet change";
-        int clauds;
+        return "Hello planet change change.2";
+        
     }
 
 }
