@@ -1,6 +1,9 @@
 package com.bookstore.backend;
 
-public class BookRating {
+public class BookRating 
+{
     
+
+
     
 }
