@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 
-
+//test 
 //@Entity
 public class BookDetails implements Serializable{
     
