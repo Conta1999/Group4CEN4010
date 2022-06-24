@@ -38,9 +38,9 @@ public class BookRating {
     }
 
     public void addBookRating () {
-        int r;
+        int r = 0;
 
-        if (id == false) { //This if should check if the user is logged in
+        if (id == 0) { //This if should check if the user is logged in
 
         }
 
@@ -48,6 +48,8 @@ public class BookRating {
 
                 System.out.println("Error: Rating exceeds the limit.\n");
         }
+
+        System.out.format("Rating: %d", r); //Dummy test
 
     }
 }
