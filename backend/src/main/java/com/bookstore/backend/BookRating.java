@@ -38,9 +38,15 @@ public class BookRating {
     }
 
     public void addBookRating () {
-        
-        if (id == false) {
+        int r;
 
+        if (id == false) { //This if should check if the user is logged in
+
+        }
+
+        if (r > 5 || r < 1) { //This should make sure the user inputs a rating between 1 and 5
+
+                System.out.println("Error: Rating exceeds the limit.\n");
         }
 
     }
