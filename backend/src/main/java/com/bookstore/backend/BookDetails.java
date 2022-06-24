@@ -4,16 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.annotation.Generated;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 
-//test 
-//@Entity
+//comment
+@Entity
 public class BookDetails implements Serializable{
     
-    // need to fix import javax.persistence.Entity;
-    //@ID
-    //@GeneratedValue(strategy = GenertionType.AUTO)
-    //@column(null = false, updatable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
 
 
         private String name;
