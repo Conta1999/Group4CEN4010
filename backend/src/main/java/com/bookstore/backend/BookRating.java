@@ -34,7 +34,7 @@ public class BookRating {
     
     public BookRating () {
 
-
+        addBookRating();
     }
 
     public void addBookRating () {
@@ -46,7 +46,7 @@ public class BookRating {
 
         if (r > 5 || r < 1) { //This should make sure the user inputs a rating between 1 and 5
 
-                System.out.println("Error: Rating exceeds the limit.\n");
+                System.out.println("Error: Rating must be between 1-5.\n");
         }
 
         System.out.format("Rating: %d", r); //Dummy test
