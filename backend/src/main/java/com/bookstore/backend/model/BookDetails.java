@@ -1,4 +1,4 @@
-package com.bookstore.backend;
+package com.bookstore.backend.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,6 +18,15 @@ public class BookDetails implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
 
+        private long id;
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
 
         private String name;
 
@@ -27,16 +36,6 @@ public class BookDetails implements Serializable{
 
         public void setName(String name) {
             this.name = name;
-        }
-
-        private int id;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
         }
 
         private int iSBN;
@@ -107,7 +106,29 @@ public class BookDetails implements Serializable{
             this.copiesSold = copiesSold;
         }
 
-    public BookDetails(String name, int id, int iSBN, String publisher , String Author , String Genre , Double price , Date yearPublished, int copiesSold )
+
+
+    public int getISBN() {
+        return this.iSBN;
+    }
+
+    public void setISBN(int iSBN) {
+        this.iSBN = iSBN;
+    }
+
+    private String bookCode;
+
+    public String getBookCode() {
+        return this.bookCode;
+    }
+
+    
+
+    public void setBookCode(String bookCode) {
+        this.bookCode = bookCode;
+    }
+
+    public BookDetails(String name, Long id, int iSBN, String publisher , String Author , String Genre , Double price , Date yearPublished, int copiesSold )
     {
         this.name = name;
         this.id = id;

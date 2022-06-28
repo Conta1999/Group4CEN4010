@@ -1,4 +1,4 @@
-package com.bookstore.backend;
+package com.bookstore.backend.model;
 
 public class ProfileManagement {
     
