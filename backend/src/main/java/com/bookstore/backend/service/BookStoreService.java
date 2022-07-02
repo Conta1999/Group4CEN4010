@@ -3,7 +3,7 @@ package com.bookstore.backend.service;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bookstore.backend.exception.BookNotFoundException;
@@ -18,15 +18,15 @@ public class BookStoreService
 
     private final BookStoreRepo bookStoreRepo;
 
-    @Autowired
-    public BookStoreService(BookStoreRepo bookRepo)
+    //@Autowired
+    public BookStoreService(BookStoreRepo bookStoreRepo)
     {
-        this.bookRepo = bookRepo;
+        this.bookStoreRepo = bookStoreRepo;
     }
     
     public BookDetails addBookDetails(BookDetails details)
     {
-        details.setBookCode(UUID.randomUUID().toString())
+        details.setBookCode(UUID.randomUUID().toString());
         return bookStoreRepo.save(details);
     }
 
@@ -40,7 +40,7 @@ public class BookStoreService
 
     }
 
-    //
+    
     public BookDetails findBookDetails(Long id)
     {
         return bookStoreRepo.findBookDetails(id).orElseThrow(() -> new BookNotFoundException("Book was not found " + id)); 
@@ -49,5 +49,6 @@ public class BookStoreService
     public void deleteBookDetails(Long id){
         bookStoreRepo.deleteBookDetailsId(id);
     }
+
 
 }

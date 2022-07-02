@@ -3,7 +3,7 @@ package com.bookstore.backend.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.annotation.Generated;
+//import javax.annotation.Generated;
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
@@ -18,6 +18,9 @@ public class BookDetails implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
 
+    public void bookDetails() {
+        
+    }
         private long id;
 
         public long getId() {

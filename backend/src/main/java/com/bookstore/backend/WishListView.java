@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WishListView {
-
+/* 
     public static void main(String[] args)
     {
         Scanner scan = new Scanner(System.in);
@@ -56,5 +56,5 @@ WishListBooks.remove(q);
 System.out.println("The books left in the Wish list are "+WishListBooks);
 }
         }while(true);
-    }
+    } */
 }
