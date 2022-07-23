@@ -2,6 +2,7 @@ package com.bookstore.backend.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -11,91 +12,87 @@ import java.util.List;
 import java.util.Optional;
 import java.time.LocalDateTime;
 
-class Book {
-    private String Author;
-    private String Publisher;
-    private int ISBN;
-    private Date yearPublished;
-    private String date;
 
 
-public Book(String Author, String Publisher, int ISBN, Date yearPublished) {
-    this.Author = Author;
-    this.Publisher = Publisher;
-    this.ISBN = ISBN;
-    this.yearPublished = yearPublished;
+
+public class BookRating {
+/*
+    String userid, String bookid, int value, String Date, String comment
+
+ */
+@Id
+private String id;
+
+@Indexed
+@Field("userid")
+private String userid;
+
+@Indexed
+@Field("bookid")
+private String bookid;
+
+@Field("value")
+private int value;
+
+@Field("date")
+private String comment;
+
+@Field("comment")
+private String date;
+
+public BookRating () {
+
+}
+
+public BookRating(String userid, String bookid, int value, String comment) {
+    this.userid = userid;
+    this.bookid = bookid;
+    this.value = value;
     this.date = LocalDateTime.now().toString();
+    this.comment = comment;
 }
+
+ public void setId() {
+    this.userid = userid;
 }
-public class BookRating {   
 
-    private String id;
-    private String name;
-    private String bookid;
-    private String date;
-   
-    
-    public void setId() {
-        this.id = id;
-    }
+public String getID() {
+    return userid;
+}
 
-    public String getID() {
-        return id;
-    }
+public String getBookid() {
+    return bookid;
+}
 
-    private String publisher; 
-    public String getPublisher() {
-        return publisher;
-    }
+public void setBookid(String bookid) {
+    this.bookid = bookid;
+}
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-    private String Author;
-    public String getAuthor() {
-        return Author;
-    }
+public String getDate (){
+    return date;
+}
 
-    public void setAuthor(String author) {
-        Author = author;
-    }
+public void setDate (String date) {
+    this.date = date;
+}
 
-    public String getBookid() {
-        return bookid;
-    }
+public String getComment() {
+    return comment;
+}
 
-    public void setBookid(String bookid) {
-        this.bookid = bookid;
-    }
+public void setComment(String comment) {
+    this.comment = comment;
+}
 
-    public String getDate (){
-        return date;
-    }
+public int getValue() {
+    return value;
+}
 
-    public void setDate (String date) {
-        this.date = date;
-    }
+public void setValue(int value) {
+    this.value = value;
+}
 
 
     
-    public BookRating () {
-
-        addBookRating();
-    }
-
-    public void addBookRating () {
-        int r = 0;
-
-        if (id == 0) { //This if should check if the user is logged in
-
-        }
-
-        if (r > 5 || r < 1) { //This should make sure the user inputs a rating between 1 and 5
-
-                System.out.println("Error: Rating must be between 1-5.\n");
-        }
-
-        System.out.format("Rating: %d", r); //Dummy test
-
-    }
 }
+

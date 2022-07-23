@@ -13,7 +13,23 @@ import java.util.Optional;
 @Service
 
 public class RateService {
+
+
+
+
+
+
+
     
+/*
+    Basic rating functions
+
+    Add book
+    
+
+ */
+
+
     public List<Rate> getAllRatings() {
         return RateRepository.findAll();
     }
@@ -61,4 +77,20 @@ public class RateService {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(uri, boolean.class);
     }
+
+
+    /*
+    -Must be able to create a rating for a book by a user on a 5-star scale with a 
+    datestamp. 
+
+    -Must be able to create a comment for a book by a user with a datestamp 
+
+    -Must be able to retrieve a list of ratings and comments sorted by highest rating 
+
+    -Must be able to retrieve the average rating for a book
+
+ */
+
+ 
+
 }
