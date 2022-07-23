@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.bookstore.backend.model.BookRating;
+import com.bookstore.backend.repo.RateRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Optional;
 public class RateService {
     
     public List<Rate> getAllRatings() {
-        return rateRepository.findAll();
+        return RateRepository.findAll();
     }
 
     public void deleteRating (String id) {
