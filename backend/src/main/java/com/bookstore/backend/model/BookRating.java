@@ -1,11 +1,15 @@
 package com.bookstore.backend.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.time.LocalDateTime;
-//import java.lang.Boolean;
 
 class Book {
     private String Author;
@@ -25,7 +29,7 @@ public Book(String Author, String Publisher, int ISBN, Date yearPublished) {
 }
 public class BookRating {   
 
-    private int id;
+    private String id;
     private String name;
     private String bookid;
     private String date;
@@ -35,7 +39,7 @@ public class BookRating {
         this.id = id;
     }
 
-    public int getID() {
+    public String getID() {
         return id;
     }
 
