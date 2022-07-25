@@ -30,12 +30,12 @@ public class RateService {
  */
 
 
-    public List<Rate> getAllRatings() {
+    public List<BookRating> getAllRatings() {
         return RateRepository.findAll();
     }
 
     public void deleteRating (String id) {
-        rateRepository.deleteID(id);
+        RateRepository.deleteID(id);
     }
 
     public void addRating(BookRating rating) {
@@ -56,7 +56,39 @@ public class RateService {
             throw new RuntimeException(String.format("Invalid value. Ratings must be between 1-5."));
         }
 
+        // get a list of all ratings in the database by this user
+        Optional<List<BookRating>> repositoryResults = RateRepository.findByUserId(rating.getID());
+
+        // if no ratings already exist for this user, go ahead and add the new rating (user/book were validated earlier)
+        if (repositoryResults.isPresent() == false) {
+            RateRepository.insert(rating);
+        }
+
+        // some ratings do exist by this user
+        else {
+
+            // check that there is not already an existing rating by this user for the specified book
+            List<BookRating> queryResultsForUser = repositoryResults.get();
+            List<BookRating> queryResultsForUserAndBook = new ArrayList<>();
+            for (BookRating r : queryResultsForUser) {
+                if (r.getBookid().equals(rating.getBookid())) {
+                    queryResultsForUserAndBook.add(r);
+                }
+            }
+
+            // no rating by this user for this book, so insert it
+            if (queryResultsForUserAndBook.size() == 0) {
+                RateRepository.insert(rating);
+            }
+
+            // rating for this book by this user already exists, so throw error
+            // PUT API should be used to update instead of insert
+            else {
+                throw new RuntimeException(String.format("Found Existing Rating for Book ID %s by User ID %s", rating.getBookid(), rating.getID()));
+            }
+        }
     }
+
     public void updateRating (BookRating rating) {
 
     }
